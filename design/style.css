@@ -43,7 +43,7 @@ p {
   font-size: 15px;
   margin-left: 200px;
 }
-.main-emoji {
+.emoji {
   font-size: 45px;
 }
 .link {
@@ -56,9 +56,6 @@ p {
 }
 .card-day {
   font-size: 17px;
-}
-.emoji {
-  font-size: 40px;
 }
 .github {
   margin-left: 240px;

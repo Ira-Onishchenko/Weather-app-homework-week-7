@@ -28,20 +28,24 @@ currentTime.innerHTML = `${hours}:${minutes}`;
 
 function showWeather(response) {
   console.log(response.data);
-  document.querySelector("#city").innerHTML = response.data.name;
-  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#city").innerHTML = response.data.city;
+  celsiusTemperature = response.data.temperature.current;
   let temperature = Math.round(celsiusTemperature);
   let currentTemperature = document.querySelector("#temperature");
   currentTemperature.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed);
   let currentWindSpeed = document.querySelector("#windSpeed");
   currentWindSpeed.innerHTML = `Wind: ${wind} km/h`;
-  let humidity = response.data.main.humidity;
+  let humidity = response.data.temperature.humidity;
   let currentHumidity = document.querySelector("#humidity");
   currentHumidity.innerHTML = `Humidity: ${humidity} %`;
-  let description = response.data.weather[0].main;
+  let description = response.data.condition.description;
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = `${description}`;
+  let icon = response.data.condition.icon;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute = ("src", response.data.condition.icon_url);
+  iconElement.setAttribute = ("alt", `${icon}`);
 }
 
 function fahrenheitConvertation(event) {
@@ -66,8 +70,8 @@ let cTemperature = document.querySelector("#c-link");
 cTemperature.addEventListener("click", celsiusConvertation);
 
 function search(city) {
-  let apiKey = "0ebc654fccbc00189d5408f3d6f15b08";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiKey = "17088b38703oa6f4t80cf35e7ba47449";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
 
