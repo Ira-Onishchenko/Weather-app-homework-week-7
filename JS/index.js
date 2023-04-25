@@ -44,8 +44,8 @@ function showWeather(response) {
   currentDescription.innerHTML = `${description}`;
   let icon = response.data.condition.icon;
   let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute = ("src", response.data.condition.icon_url);
-  iconElement.setAttribute = ("alt", `${icon}`);
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  iconElement.setAttribute("alt", `${icon}`);
 }
 
 function fahrenheitConvertation(event) {

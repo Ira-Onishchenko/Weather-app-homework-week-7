@@ -43,7 +43,7 @@ p {
   font-size: 15px;
   margin-left: 200px;
 }
-.emoji {
+.day-icon {
   font-size: 45px;
 }
 .link {
@@ -63,6 +63,10 @@ p {
 }
 #temperature {
   font-size: 45px;
+}
+#icon {
+  margin-top: -40px;
+  margin-left: -20px;
 }
 #c-link {
   text-decoration: none;
