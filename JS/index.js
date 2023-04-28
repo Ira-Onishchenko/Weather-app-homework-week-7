@@ -26,6 +26,62 @@ let hours = now.getHours();
 let minutes = now.getMinutes();
 currentTime.innerHTML = `${hours}:${minutes}`;
 
+function dayTime(theTime) {
+  let date = new Date(theTime * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row text-center">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+        <div class="card">
+        <div class="forecast-day">
+        ${dayTime(forecastDay.time)} 
+        </div>
+        <img
+          src="${forecastDay.condition.icon_url}" 
+        />
+        <div class="weather-forecast-temperature">
+          <span class="weather-forecast-tempe-max"> ${Math.round(
+            forecastDay.temperature.maximum
+          )}° </span>
+          <span class="weather-forecast-temp-min"> ${Math.round(
+            forecastDay.temperature.minimum
+          )}° </span>
+        </div>
+        </div>
+        </div>
+  `;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "17088b38703oa6f4t80cf35e7ba47449";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showWeather(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.city;
@@ -46,6 +102,7 @@ function showWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", response.data.condition.icon_url);
   iconElement.setAttribute("alt", `${icon}`);
+  getForecast(response.data.coordinates);
 }
 
 function fahrenheitConvertation(event) {
