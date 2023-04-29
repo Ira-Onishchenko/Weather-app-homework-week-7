@@ -1,6 +1,14 @@
 let now = new Date();
 let currentDay = document.querySelector("#day");
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let day = days[now.getDay()];
 currentDay.innerHTML = `${day}`;
 let currentDate = document.querySelector("#date");
