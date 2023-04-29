@@ -22,14 +22,14 @@ p {
 .buttons {
   max-width: 800px;
   position: fixed;
-  left: 740px;
+  left: 730px;
   top: 70px;
 }
 .search-btn {
-  background-color: rgb(27, 177, 237);
+  background-color: rgb(91, 202, 239);
   border-radius: 3px;
   position: fixed;
-  left: 940px;
+  left: 930px;
   top: 70px;
 }
 .dayTime {
@@ -38,7 +38,7 @@ p {
   margin-left: -30px;
 }
 .wind {
-  max-width: 800px;
+  max-width: 750px;
   list-style: none;
   font-size: 15px;
   margin-left: 200px;
@@ -50,13 +50,14 @@ p {
   position: relative;
   top: -20px;
 }
-.card-friday {
-  font-weight: bold;
+#forecast {
   font-size: 17px;
 }
-.card-day {
-  font-size: 17px;
+
+.card {
+  width: 115px;
 }
+
 .github {
   margin-left: 240px;
   text-decoration: none;

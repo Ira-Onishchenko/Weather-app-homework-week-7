@@ -91,10 +91,10 @@ function showWeather(response) {
   currentTemperature.innerHTML = `${temperature}`;
   let wind = Math.round(response.data.wind.speed);
   let currentWindSpeed = document.querySelector("#windSpeed");
-  currentWindSpeed.innerHTML = `Wind: ${wind} km/h`;
+  currentWindSpeed.innerHTML = `wind: ${wind} m/h`;
   let humidity = response.data.temperature.humidity;
   let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `Humidity: ${humidity} %`;
+  currentHumidity.innerHTML = `humidity: ${humidity} %`;
   let description = response.data.condition.description;
   let currentDescription = document.querySelector("#description");
   currentDescription.innerHTML = `${description}`;
